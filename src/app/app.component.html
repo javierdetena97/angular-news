@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
 <div class="container">
   <app-category-country-form (selectedParameters)="searchNews($event)"></app-category-country-form>
-  <app-news-list></app-news-list>
+  <app-news-list [newsList]="newsList"></app-news-list>
 </div>

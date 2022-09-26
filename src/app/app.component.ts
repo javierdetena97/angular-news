@@ -9,16 +9,27 @@ import {NewService} from "./services/new.service";
 export class AppComponent {
   title = 'angular-news';
 
+  newsList: any[] = [];
+  loading = false;
+
   constructor(private _newService: NewService) {
 
   }
 
   searchNews(parameters: any) {
-    console.log('CategoryCountryForm, I\'m your father!');
-    console.log(parameters);
+    this.loading = true;
+    this.newsList = [];
 
-    this._newService.getNews(parameters).subscribe(data => {
-      console.log(data);
-    })
+    setTimeout(() => {
+      this._newService.getNews(parameters).subscribe(data => {
+        this.loading = false;
+        console.log(data);
+        this.newsList = data.articles;
+      }, error => {
+        this.loading = false;
+        console.log(error)
+      })
+    }, 1000);
+
   }
 }
