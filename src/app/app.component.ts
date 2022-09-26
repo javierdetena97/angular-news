@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NewService} from "./services/new.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-news';
+
+  constructor(private _newService: NewService) {
+
+  }
+
+  searchNews(parameters: any) {
+    console.log('CategoryCountryForm, I\'m your father!');
+    console.log(parameters);
+
+    this._newService.getNews(parameters).subscribe(data => {
+      console.log(data);
+    })
+  }
 }
