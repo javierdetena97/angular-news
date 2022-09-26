@@ -1,0 +1,22 @@
+<div class="jumbotron mt-5">
+  <h2 class="heading">{{ title }}</h2>
+  <div class="row mt-4">
+    <div class="col-lg-8 offset-lg-2">
+      <form>
+        <div class="form-group">
+          <label>{{ categorySelectForm }}</label>
+          <select name="category" [(ngModel)]="selectedCategory" class="form-control">
+            <option [value]="category.value" *ngFor="let category of categories">{{ category.name }}</option>
+          </select>
+        </div>
+        <div name="country" class="form-group">
+          <label>{{ countrySelectForm }}</label>
+          <select name="country" [(ngModel)]="selectedCountry" class="form-control">
+            <option [value]="country.value" *ngFor="let country of countries">{{ country.name }}</option>
+          </select>
+        </div>
+      </form>
+      <button (click)="searchNew()" class="btn btn-dark btn-block mt-4">Cercar</button>
+    </div>
+  </div>
+</div>
