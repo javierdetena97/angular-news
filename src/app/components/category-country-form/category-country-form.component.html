@@ -9,7 +9,7 @@
             <option [value]="category.value" *ngFor="let category of categories">{{ category.name }}</option>
           </select>
         </div>
-        <div name="country" class="form-group">
+        <div class="form-group">
           <label>{{ countrySelectForm }}</label>
           <select name="country" [(ngModel)]="selectedCountry" class="form-control">
             <option [value]="country.value" *ngFor="let country of countries">{{ country.name }}</option>
